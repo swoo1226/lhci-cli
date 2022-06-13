@@ -9,14 +9,23 @@ module.exports = {
     },
     assert: {
       // assert options here
+      // assertions: {
+      //   "categories:performance": ["warn", { minScore: 0.9 }],
+      //   "categories:accessibility": ["error", { minScore: 1 }],
+      // },
+      preset: "lighthouse:no-pwa",
       assertions: {
-        "categories:performance": ["warn", { minScore: 0.9 }],
-        "categories:accessibility": ["error", { minScore: 1 }],
+        "dom-size": ["error", { maxNumericValue: 1000 }],
+        "offscreen-images": "off",
+        "color-contrast": "off",
+        "tap-targets": "off",
       },
     },
     upload: {
       // upload options here
-      target: "temporary-public-storage",
+      target: "filesystem",
+      outputDir: "./lhci_reports",
+      reportFilenamePattern: "%%PATHNAME%%-%%DATETIME%%-report.%%EXTENSION%%",
     },
     server: {
       // server options here
