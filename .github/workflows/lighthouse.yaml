@@ -24,9 +24,6 @@ jobs:
       - name: Format lighthouse score
         id: format_lighthouse_score
         uses: actions/github-script@v3
-        run: |
-          pwd
-          ls
         with:
           github-token: ${{secrets.HUB_TOKEN}}
           script: |
